@@ -1,1 +1,1 @@
-console.log('loaded')
+console.log('Client side loaded')
