@@ -1,6 +1,7 @@
 const path = require('path')
 const express = require('express')
 const hbs = require('hbs')
+const http = require('http');
 
 console.log(__dirname)
 console.log(path.join(__dirname, '../public'))
@@ -53,6 +54,11 @@ app.get('*', (req,res)=>{
 })
 
 // Listen on specified port
-app.listen(3000, () => {
-    console.log('Server started on port 3000')
-})
+// app.listen(3000, () => {
+//     console.log('Server started on port 3000')
+// })
+
+const httpServer = http.createServer(app);
+httpServer.listen(80, () => {
+  console.log(`API is now live on ${80}`);
+});
