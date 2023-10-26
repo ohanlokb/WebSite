@@ -9,6 +9,7 @@ body {
     flex-direction: column;
     min-height: 100vh;
 }
+
 p {
     margin-bottom: 32px;
 }
@@ -61,3 +62,10 @@ header a {
     height: 30px;
 }
 
+.zoom {
+    transition: transform .5s ease;
+}
+
+.zoom:hover {
+    transform: scale(1.5);
+}
