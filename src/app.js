@@ -60,15 +60,17 @@ app.get('*', (req,res)=>{
 //     console.log('Server started on port 3000')
 // })
 
-const httpServer = http.createServer(app);
-httpServer.listen(80, () => {
-  console.log(`HTTP Server running on port 80`);
-});
+const isProd = true;
+
+// const httpServer = http.createServer(app);
+// httpServer.listen(80, () => {
+//     console.log(`HTTP Server running on port 80`);
+// });
 
 const httpsServer = https.createServer({
     key: fs.readFileSync('/home/ec2-user/certs/my-ssl-certificates/live/kevinohanlon.com/privkey.pem'),
     cert: fs.readFileSync('/home/ec2-user/certs/my-ssl-certificates/live/kevinohanlon.com/fullchain.pem')
 }, app);
 httpsServer.listen(443, () => {
-  console.log(`HTTPs Server running on port 443`);
-});
+    console.log(`HTTPs Server running on port 443`);
+});    
