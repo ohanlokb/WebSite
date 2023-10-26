@@ -66,8 +66,8 @@ httpServer.listen(80, () => {
 });
 
 const httpsServer = https.createServer({
-    key: fs.readFileSync('/etc/letsencrypt/live/kevinohanlon.com/privkey.pem'),
-    cert: fs.readFileSync('/etc/letsencrypt/live/kevinohanlon.com/fullchain.pem')
+    key: fs.readFileSync('/home/ec2-user/certs/my-ssl-certificates/live/kevinohanlon.com/privkey.pem'),
+    cert: fs.readFileSync('/home/ec2-user/certs/my-ssl-certificates/live/kevinohanlon.com/fullchain.pem')
 }, app);
 httpsServer.listen(443, () => {
   console.log(`HTTPs Server running on port 443`);
