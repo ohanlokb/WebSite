@@ -62,10 +62,10 @@ app.get('*', (req,res)=>{
 
 const isProd = true;
 
-// const httpServer = http.createServer(app);
-// httpServer.listen(80, () => {
-//     console.log(`HTTP Server running on port 80`);
-// });
+const httpServer = http.createServer(app);
+httpServer.listen(80, () => {
+    console.log(`HTTP Server running on port 80`);
+});
 
 const httpsServer = https.createServer({
     key: fs.readFileSync('/home/ec2-user/certs/my-ssl-certificates/live/kevinohanlon.com/privkey.pem'),
