@@ -2,6 +2,8 @@ const path = require('path')
 const express = require('express')
 const hbs = require('hbs')
 const http = require('http');
+const https = require('https');
+const fs = require('fs');
 
 console.log(__dirname)
 console.log(path.join(__dirname, '../public'))
@@ -60,5 +62,13 @@ app.get('*', (req,res)=>{
 
 const httpServer = http.createServer(app);
 httpServer.listen(80, () => {
-  console.log(`API is now live on ${80}`);
+  console.log(`HTTP Server running on port 80`);
+});
+
+const httpsServer = https.createServer({
+    key: fs.readFileSync('/etc/letsencrypt/live/kevinohanlon.com/privkey.pem'),
+    cert: fs.readFileSync('/etc/letsencrypt/live/kevinohanlon.com/fullchain.pem')
+}, app);
+httpsServer.listen(443, () => {
+  console.log(`HTTPs Server running on port 443`);
 });
